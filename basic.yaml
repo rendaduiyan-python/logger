@@ -1,0 +1,61 @@
+# default format
+settings:
+    # default
+    default:
+        # date format used in the log record
+        date: "%Y-%m-%d %H:%M:%S"
+        # format for individual log record
+        log: "%(asctime)s %(levelname)s %(funcName)s %(lineno)d: %(message)s"
+    # short
+    short:
+        date: "%H:%M:%S"
+        log: "%(asctime)s %(levelname)1.1s %(funcName)s %(lineno)d: %(message)s"
+    # format for streams
+    black_white:
+        debug: DIM
+        info: NORMAL
+        warning: BRIGHT
+        error: BRIGHT
+        critical: BRIGHT
+
+    colorful:
+        debug:
+            fore: BLACK
+            bg: BLUE
+        info:
+            fore: CYAN
+            bg: WHITE
+        warning:
+            fore: BLACK
+            bg: YELLOW
+        error:
+            fore: YELLOW
+            bg: RED
+        critical:
+            fore: BLACK
+            bg: RED
+
+formatters:
+    bw_console: 
+        format: short
+        class: logger.ExtConsoleHandler
+        settings: black_white
+
+    colorful_console: 
+        format: default
+        class: logger.ExtConsoleHandler
+        settings: colorful
+
+# settings from logging
+loggers:
+    Example1:
+        level: DEBUG
+        handlers: [colorful_console]
+        propagate: no
+    Example2:
+        level: DEBUG
+        handlers: [bw_console]
+        propagate: no
+
+root:
+    level: DEBUG    
