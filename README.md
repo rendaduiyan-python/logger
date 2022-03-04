@@ -8,5 +8,8 @@ and two console loggers:
 * black-and-white
 * colorful
 
+It looks like:
+![alt text](https://github.com/rendaduiyan-python/logging/blob/main/console_logger.PNG?raw=true)
+
 Dependencies:
 * colorama
